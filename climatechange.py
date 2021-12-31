@@ -2,7 +2,7 @@ import numpy as np
 import pylab
 import re
 
-# cities in our weather data
+#cities in weather data
 CITIES = [
     'BOSTON',
     'SEATTLE',
@@ -30,9 +30,7 @@ CITIES = [
 INTERVAL_1 = list(range(1961, 2006))
 INTERVAL_2 = list(range(2006, 2016))
 
-"""
-Begin helper code
-"""
+
 class Climate(object):
     """
     The collection of temperature records loaded from given csv file
@@ -113,11 +111,7 @@ class Climate(object):
 
 
 
-"""
-End helper code
-"""
 
-# Problem 1
 def generate_models(x, y, degs):
     """
     Generate regression models by fitting a polynomial for each degree in degs
@@ -136,7 +130,7 @@ def generate_models(x, y, degs):
         coeffs.append(model)
     return coeffs
 
-# Problem 2
+
 def r_squared(y, estimated):
     """
     Calculate the R-squared error term.
@@ -152,7 +146,7 @@ def r_squared(y, estimated):
     meanError = error/len(y)
     return 1-(meanError/np.var(y))
 
-# Problem 3
+
 def evaluate_models_on_training(x, y, models):
     """
     For each regression model, compute the R-square for this model with the
@@ -174,7 +168,6 @@ def evaluate_models_on_training(x, y, models):
     Returns:
         None
     """
-    # xVals, yVals=pylab.array(x), pylab.array(y)
     for i in range(len(models)):
         pylab.plot(x, y, 'bo', label='Original')
         estYVals=pylab.polyval(models[i], x)
@@ -186,17 +179,6 @@ def evaluate_models_on_training(x, y, models):
         pylab.figure()
 
     
-    # xVals, yVals = pylab.array(x), pylab.array(y)
-    # for i in models:
-    #     pylab.plot(xVals, yVals, 'bo', label = 'Measured points')
-    #     pylab.title('Temperature vs. time')
-    #     pylab.xlabel('Year')
-    #     pylab.ylabel('Temperature')
-    #     a,b = models[0][0], models[0][1]
-    #     estYVals = a*xVals + b
-    #     pylab.plot(xVals, estYVals, label = 'R^2 =' + str(r_squared(yVals, estYVals)))
-    #     pylab.legend(loc = 'best')
-    #     pylab.show()
 
 
 ### Begining of program
